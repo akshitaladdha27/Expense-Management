@@ -31,4 +31,8 @@ Thumbs.db
 
 frontend
 
-backend/src
+backend/src/api
+backend/src/controllers
+backend/src/middlewares
+backend/src/models
+backend/src/utils
