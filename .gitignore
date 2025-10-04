@@ -30,9 +30,3 @@ pnpm-debug.log*
 Thumbs.db
 
 frontend
-
-
-backend/src/controllers/expense.controller.js
-backend/src/controllers/user.controller.js
-backend/src/middlewares
-backend/src/models
