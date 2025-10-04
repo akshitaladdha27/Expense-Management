@@ -18,7 +18,6 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard /> : <Navigate to="/login" />}
         />
-        {/* Redirect any other path to the correct starting page */}
         <Route
           path="*"
           element={<Navigate to={user ? "/dashboard" : "/login"} />}
