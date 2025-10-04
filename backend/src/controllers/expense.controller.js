@@ -1,14 +1,12 @@
 import Expense from '../models/expense.model.js';
 import User from '../models/user.model.js';
 
-
-
 export const submitExpense = async (req, res) => {
   try {
     const { amount, currency, category, description, expenseDate } = req.body;
 
     const newExpense = new Expense({
-      employeeId: req.user._id, // Get employee ID from the logged-in user
+      employeeId: req.user._id, 
       amount,
       currency,
       category,
