@@ -31,7 +31,8 @@ Thumbs.db
 
 frontend
 
-backend/src/api
+backend/src/api/expense.routes.js
+backend/src/api/user.routes.js
 backend/src/controllers
 backend/src/middlewares
 backend/src/models
