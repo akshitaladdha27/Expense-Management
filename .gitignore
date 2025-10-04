@@ -33,6 +33,6 @@ frontend
 
 
 backend/src/controllers/expense.controller.js
+backend/src/controllers/user.controller.js
 backend/src/middlewares
 backend/src/models
-backend/src/utils
