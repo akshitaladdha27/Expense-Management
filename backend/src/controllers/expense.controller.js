@@ -38,12 +38,7 @@ export const getMyExpenses = async (req, res) => {
 
 export const getPendingExpenses = async (req, res) => {
   try {
-    const employees = await User.find({ managerId: req.user._id });
-
-    const employeeIds = employees.map(employee => employee._id);
-
     const pendingExpenses = await Expense.find({
-      employeeId: { $in: employeeIds },
       status: 'Pending'
     })
     .populate('employeeId', 'name email') 
@@ -82,6 +77,24 @@ export const reviewExpense = async (req, res) => {
 
   } catch (error) {
     console.error(`Error in reviewExpense controller: ${error.message}`);
+    res.status(500).json({ message: 'Server Error' });
+  }
+};
+
+export const getTeamExpenses = async (req, res) => {
+  try {
+    const employees = await User.find({ managerId: req.user._id });
+    const employeeIds = employees.map(employee => employee._id);
+
+    const teamExpenses = await Expense.find({
+      employeeId: { $in: employeeIds }
+    })
+    .populate('employeeId', 'name email')
+    .sort({ createdAt: -1 });
+
+    res.status(200).json(teamExpenses);
+  } catch (error) {
+    console.error(`Error in getTeamExpenses controller: ${error.message}`);
     res.status(500).json({ message: 'Server Error' });
   }
 };

@@ -23,7 +23,6 @@ const Dashboard = () => {
       case 'Employee':
         return <EmployeeDashboard />;
       default:
-        // If role is unknown, redirect to login
         navigate('/login');
         return null;
     }

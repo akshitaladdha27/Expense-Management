@@ -5,7 +5,7 @@ const CreateUserForm = ({ onUserCreated }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('Employee'); // Default to creating an Employee
+  const [role, setRole] = useState('Employee'); 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -19,12 +19,9 @@ const CreateUserForm = ({ onUserCreated }) => {
       await api.post('/users', newUser);
 
       setSuccess(`Successfully created ${role}: ${name}`);
-      // Clear the form
       setName('');
       setEmail('');
       setPassword('');
-
-      // Notify the parent dashboard to refresh the user list
       if (onUserCreated) {
         onUserCreated();
       }

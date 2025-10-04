@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import api from '../api/axios';
-import CreateUserForm from './CreateUserForm'; // Import the new form
+import CreateUserForm from './CreateUserForm'; 
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);

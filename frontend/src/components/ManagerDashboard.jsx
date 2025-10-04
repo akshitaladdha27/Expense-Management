@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import api from '../api/axios';
+import ExpenseRow from './ExpenseRow'; 
+import TeamExpensesList from './TeamExpensesList';
 
 const ManagerDashboard = () => {
   const [pendingExpenses, setPendingExpenses] = useState([]);
@@ -12,7 +14,7 @@ const ManagerDashboard = () => {
     try {
       const response = await api.get('/expenses/pending');
       setPendingExpenses(response.data);
-    } catch (err) { 
+    } catch (err) {
       setError('Failed to fetch pending expenses.');
       console.error(err);
     } finally {
@@ -36,56 +38,42 @@ const ManagerDashboard = () => {
     }
   };
 
-  if (loading) return <p>Loading pending expenses...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  if (loading) return <p className="text-center mt-4">Loading pending expenses...</p>;
+  if (error) return <p className="text-center mt-4 text-red-500">{error}</p>;
 
   return (
-    <div>
-      <h3>Pending Expense Approvals</h3>
-      {actionMessage && <p>{actionMessage}</p>}
+    <div className="p-4 sm:p-6 md:p-8">
+      <h3 className="text-2xl font-bold mb-4">Approvals to review</h3>
+      {actionMessage && <p className="text-blue-500 mb-4">{actionMessage}</p>}
       {pendingExpenses.length === 0 ? (
-        <p>There are no pending expenses for your team.</p>
+        <p className="text-gray-500">There are no pending expenses for your team.</p>
       ) : (
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr style={{ borderBottom: '1px solid #ddd' }}>
-              <th style={{ textAlign: 'left', padding: '8px' }}>Employee</th>
-              <th style={{ textAlign: 'left', padding: '8px' }}>Date</th>
-              <th style={{ textAlign: 'left', padding: '8px' }}>Category</th>
-              <th style={{ textAlign: 'left', padding: '8px' }}>Amount</th>
-              <th style={{ textAlign: 'left', padding: '8px' }}>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pendingExpenses.map((expense) => (
-              <tr key={expense._id} style={{ borderBottom: '1px solid #ddd' }}>
-                <td style={{ padding: '8px' }}>{expense.employeeId.name}</td>
-                <td style={{ padding: '8px' }}>
-                  {new Date(expense.expenseDate).toLocaleDateString()}
-                </td>
-                <td style={{ padding: '8px' }}>{expense.category}</td>
-                <td style={{ padding: '8px' }}>
-                  {expense.amount} {expense.currency}
-                </td>
-                <td style={{ padding: '8px' }}>
-                  <button
-                    onClick={() => handleReview(expense._id, 'Approved')}
-                    style={{ marginRight: '5px', backgroundColor: 'green', color: 'white' }}
-                  >
-                    Approve
-                  </button>
-                  <button
-                    onClick={() => handleReview(expense._id, 'Rejected')}
-                    style={{ backgroundColor: 'red', color: 'white' }}
-                  >
-                    Reject
-                  </button>
-                </td>
+        <div className="overflow-x-auto shadow-md rounded-lg">
+          <table className="w-full text-sm text-left text-gray-700">
+            <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+              <tr>
+                <th scope="col" className="px-6 py-3">Approval Subject</th>
+                <th scope="col" className="px-6 py-3">Request Owner</th>
+                <th scope="col" className="px-6 py-3">Category</th>
+                <th scope="col" className="px-6 py-3">Amount</th>
+                <th scope="col" className="px-6 py-3">Status</th>
+                <th scope="col" className="px-6 py-3">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {pendingExpenses.map((expense) => (
+                <ExpenseRow
+                  key={expense._id}
+                  expense={expense}
+                  onReview={handleReview}
+                />
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
+      <hr className="my-8" />
+      <TeamExpensesList />
     </div>
   );
 };
