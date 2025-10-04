@@ -1,6 +1,8 @@
 import Expense from '../models/expense.model.js';
 import User from '../models/user.model.js';
 
+
+
 export const submitExpense = async (req, res) => {
   try {
     const { amount, currency, category, description, expenseDate } = req.body;
