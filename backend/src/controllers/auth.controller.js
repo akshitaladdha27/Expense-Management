@@ -5,6 +5,7 @@ import generateToken from '../utils/generateToken.js';
 
 export const signup = async (req, res) => {
   try {
+    
     const { name, email, password, companyName } = req.body;
 
     if (!name || !email || !password || !companyName) {
@@ -53,14 +54,20 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
+     console.log("🔵 LOGIN HIT");
+    console.log("🔵 BODY:", req.body);
     const { email, password } = req.body;
+     console.log("🔵 EMAIL:", email);
+    console.log("🔵 PASSWORD:", password);
 
     const user = await User.findOne({ email });
+     console.log("🔵 USER FOUND:", user);
     if (!user) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("🔵 PASSWORD MATCH:", isMatch);
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
