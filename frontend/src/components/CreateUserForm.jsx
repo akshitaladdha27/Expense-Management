@@ -37,15 +37,45 @@ const CreateUserForm = ({ onUserCreated }) => {
       <h3>Create New User</h3>
       <div>
         <label>Name:</label>
-        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} required 
+         style={{
+        width: '20%',
+        padding: '1px',
+        paddingLeft: '12px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+        />
       </div>
       <div>
         <label>Email:</label>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required 
+        style={{
+        width: '20%',
+        padding: '1px',
+        paddingLeft: '12px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px',
+      }}
+        />
       </div>
       <div>
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required 
+        style={{
+        width: '20%',
+        padding: '1px',
+        paddingLeft: '12px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+        />
       </div>
       <div>
         <label>Role:</label>
@@ -56,7 +86,16 @@ const CreateUserForm = ({ onUserCreated }) => {
       </div>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
-      <button type="submit">Create User</button>
+      <button type="submit"
+      style={{
+          backgroundColor: 'gray',
+          color: 'white',
+          padding: '5px 10px',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer',
+        }}
+      >Create User</button>
     </form>
   );
 };

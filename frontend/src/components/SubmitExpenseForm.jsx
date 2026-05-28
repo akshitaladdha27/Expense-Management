@@ -78,7 +78,12 @@ const SubmitExpenseForm = ({ onExpenseSubmitted }) => {
       <div style={{ flex: 1, border: '1px solid #ccc', padding: '16px', borderRadius: '8px' }}>
         <h3>Scan Receipt</h3>
         <input type="file" onChange={(e) => setOcrImage(e.target.files[0])} accept="image/*" />
-        <button onClick={handleOcr} disabled={isProcessing} style={{ marginTop: '10px' }}>
+        <button onClick={handleOcr} disabled={isProcessing} style={{ marginTop: '10px', backgroundColor: 'gray',
+          color: 'white',
+          padding: '5px 10px',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer', }}>
           {isProcessing ? `Processing... ${ocrProgress}%` : 'Scan and Fill Form'}
         </button>
         {ocrText && (
@@ -93,27 +98,81 @@ const SubmitExpenseForm = ({ onExpenseSubmitted }) => {
         <h3>Submit New Expense</h3>
         <div>
           <label>Amount:</label>
-          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} required />
+          <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} required 
+          style={{
+        width: '20%',
+        paddingLeft: '10px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+          />
         </div>
         <div>
           <label>Currency:</label>
-          <input type="text" value={currency} onChange={(e) => setCurrency(e.target.value)} required />
+          <input type="text" value={currency} onChange={(e) => setCurrency(e.target.value)} required 
+          style={{
+        width: '20%',
+        paddingLeft: '10px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+          />
         </div>
         <div>
           <label>Category:</label>
-          <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
+          <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required 
+          style={{
+        width: '20%',
+        paddingLeft: '10px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+            />
         </div>
         <div>
           <label>Description:</label>
-          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+          <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} 
+          style={{
+        width: '20%',
+        paddingLeft: '10px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+          />
         </div>
         <div>
           <label>Expense Date:</label>
-          <input type="date" value={expenseDate} onChange={(e) => setExpenseDate(e.target.value)} required />
+          <input type="date" value={expenseDate} onChange={(e) => setExpenseDate(e.target.value)} required 
+          style={{
+        width: '20%',
+        paddingLeft: '10px',
+        border: '1px solid #999',
+        borderRadius: '6px',
+        marginLeft: '5px',
+        marginTop: '5px'
+      }}
+          />
         </div>
         {error && <p style={{ color: 'red' }}>{error}</p>}
         {success && <p style={{ color: 'green' }}>{success}</p>}
-        <button type="submit">Submit Expense</button>
+        <button type="submit"
+        style={{
+          backgroundColor: 'gray',
+          color: 'white',
+          padding: '5px 10px',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer',
+        }}
+        >Submit Expense</button>
       </form>
     </div>
   );

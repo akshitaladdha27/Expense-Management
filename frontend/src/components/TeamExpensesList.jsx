@@ -26,7 +26,7 @@ const TeamExpensesList = () => {
 
   return (
     <div className="mt-8">
-      <h4 className="text-xl font-bold mb-4">Complete Team Expense History</h4>
+      <h4 className="text-xl font-bold mb-4 text-gray-800">Complete Team Expense History</h4>
       {expenses.length === 0 ? (
         <p>No expenses have been submitted by your team yet.</p>
       ) : (

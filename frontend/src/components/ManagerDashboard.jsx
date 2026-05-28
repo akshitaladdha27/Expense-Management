@@ -43,7 +43,7 @@ const ManagerDashboard = () => {
 
   return (
     <div className="p-4 sm:p-6 md:p-8">
-      <h3 className="text-2xl font-bold mb-4">Approvals to review</h3>
+      <h3 className="text-2xl font-bold mb-4 text-gray-800">Approvals to review</h3>
       {actionMessage && <p className="text-blue-500 mb-4">{actionMessage}</p>}
       {pendingExpenses.length === 0 ? (
         <p className="text-gray-500">There are no pending expenses for your team.</p>
