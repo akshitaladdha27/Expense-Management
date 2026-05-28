@@ -161,11 +161,11 @@ const Login = () => {
               </div>
 
               <p className="text-sm text-gray-600">
-                <span className="font-medium">Email:</span> admin@test.com
+                <span className="font-medium">Email:</span> akshita@example.com
               </p>
 
               <p className="text-sm text-gray-600">
-                <span className="font-medium">Password:</span> admin123
+                <span className="font-medium">Password:</span> password123
               </p>
             </div>
 
@@ -185,7 +185,7 @@ const Login = () => {
               </p>
 
               <p className="text-sm text-gray-600">
-                <span className="font-medium">Password:</span> manager123
+                <span className="font-medium">Password:</span> strongpassword123
               </p>
             </div>
 
@@ -205,7 +205,7 @@ const Login = () => {
               </p>
 
               <p className="text-sm text-gray-600">
-                <span className="font-medium">Password:</span> employee123
+                <span className="font-medium">Password:</span> password123
               </p>
             </div>
 
