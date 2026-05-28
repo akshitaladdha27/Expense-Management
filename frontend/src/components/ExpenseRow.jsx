@@ -11,7 +11,7 @@ const ExpenseRow = ({ expense, onReview }) => {
       if (expense.currency !== COMPANY_CURRENCY) {
         try {
           const response = await api.get(
-            `/currency/convert?from=${expense.currency}&to=${COMPANY_CURRENCY}&amount=${expense.amount}`
+            `/api/currency/convert?from=${expense.currency}&to=${COMPANY_CURRENCY}&amount=${expense.amount}`
           );
           setConvertedAmount(response.data.convertedAmount);
         } catch (error) {
