@@ -9,7 +9,7 @@ const TeamExpensesList = () => {
   useEffect(() => {
     const fetchTeamExpenses = async () => {
       try {
-        const response = await api.get('/expenses/team');
+        const response = await api.get('/api/expenses/team');
         setExpenses(response.data);
       } catch (err) {
         setError('Failed to fetch team expenses.');
