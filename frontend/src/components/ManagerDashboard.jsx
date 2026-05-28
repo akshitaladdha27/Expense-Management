@@ -12,7 +12,7 @@ const ManagerDashboard = () => {
   const fetchPendingExpenses = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await api.get('/expenses/pending');
+      const response = await api.get('/api/expenses/pending');
       setPendingExpenses(response.data);
     } catch (err) {
       setError('Failed to fetch pending expenses.');
