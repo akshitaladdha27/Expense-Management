@@ -17,7 +17,7 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const response = await api.post('/auth/login', { email, password });
+      const response = await api.post('api/auth/login', { email, password });
       login(response.data);
       navigate('/dashboard');
     } catch (err) {
@@ -116,8 +116,100 @@ const Login = () => {
                 'Sign In'
               )}
             </button>
-          </form>
-          
+          </form>  
+        </div>
+
+        <div className="mt-6 bg-gray-50 border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-lg bg-gray-700 flex items-center justify-center">
+              <svg
+                className="w-4 h-4 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-gray-800">
+                Demo Credentials
+              </h3>
+              <p className="text-xs text-gray-500">
+                Use these accounts to explore the system
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            
+            <div className="bg-white border border-gray-200 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-semibold text-gray-800">
+                  Admin Access
+                </span>
+
+                <span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">
+                  Full Access
+                </span>
+              </div>
+
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Email:</span> admin@test.com
+              </p>
+
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Password:</span> admin123
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-semibold text-gray-800">
+                  Manager Access
+                </span>
+
+                <span className="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">
+                  Limited Access
+                </span>
+              </div>
+
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Email:</span> manager@test.com
+              </p>
+
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Password:</span> manager123
+              </p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-xl p-4">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-semibold text-gray-800">
+                  Employee Access
+                </span>
+
+                <span className="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">
+                  Basic Access
+                </span>
+              </div>
+
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Email:</span> employee@test.com
+              </p>
+
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Password:</span> employee123
+              </p>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
